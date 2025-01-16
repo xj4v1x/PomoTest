@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Pomodoro</title>
+</head>
+<body>    
+    <main>
+        <section id="pomodoro">
+            <div id="pomodoro_top">
+                <div id="logo_and_title">
+                    <img src="img/png/pomodoro.png" alt="logo_pomodoro" id="logo_pomodoro">
+                    <h1>pomouredev</h1>
+                    <p id="beta">beta</p>
+                </div>
+                <div class="pomodoro_modes">
+                    <div>
+                        <button id="worktime_button" class="active">Work Time</button>
+                        <button id="shortbreak_button" >Short Break</button>
+                        <button id="longbreak_button">Long Break</button>
+                    </div>
+                </div>
+                <div id="menu">
+                    <a class="btn" href="#open-modal">
+                        <button>Menu</button>
+                    </a>
+                    <div>
+                        <span id="settings_button">Settings</span>
+                        <span id="signup_button">Sign Up</span>
+                        <span id="login_button">Login</span>
+                    </div>
+                </div>
+            </div>
+            <div id="pomodoro_core" class="grid-scroll">                
+                <div id="tasks"></div>
+                <div id="statistics"></div>
+                <div id="timer">
+                    <div class="circle-container">
+                        <svg class="progress-ring">                            
+                            <circle class="progress-ring__circle" 
+                                    cx="150" 
+                                    cy="80" 
+                                    r="225"
+                                    stroke-width="22"
+                                    fill="transparent" />                                                                             
+                            <circle class="out-ring__circle" 
+                                    cx="150" 
+                                    cy="80" 
+                                    r="240"
+                                    stroke-width="3"
+                                    fill="transparent" />
+                            <circle class="in-ring__circle" 
+                                    cx="150" 
+                                    cy="80" 
+                                    r="210"
+                                    stroke-width="3"
+                                    fill="transparent" />
+                        </svg>
+                    </div>
+                    <div id="clock">
+                        <span id="mins"></span>
+                        <span>:</span>
+                        <span id="secs"></span>
+                    </div>
+                </div>
+                <div id="status"></div>
+            </div>
+            <div id="pomodoro_bottom">                                
+                <div class="pomodoro_modes">
+                    <button id="start_button">START</button>
+                    <button id="pause_button">PAUSE</button>
+                    <button id="stop_button">STOP</button>
+                </div>
+            </div>
+        </section>
+        <section class="web">
+            <div class="text">
+                <h2>¿Qué es la técnica Pomodoro?</h2>
+                <p>La técnica Pomodoro es un método de gestión del tiempo diseñado para potenciar la productividad.</p>
+                <p>Se basa en utilizar un temporizador que fracciona tu jornada laboral en segmentos denominados pomodoros y pausas.</p>
+                <p>Por lo general, cada pomodoro dura 25 minutos y se complementa con un descanso de 5 minutos, aunque la duración exacta puede ajustarse en función de tu nivel de concentración.</p>
+            </div>
+        </section>
+        <section class="comunidad">            
+            <div class="text">                
+                <h2>La Comunidad</h2>
+                <p>Rodéate por una comunidad que comparte tus mismos intereses dentro del campus, diseñado para ayudarte a crecer.</p>
+                <p>Pregunta, comparte, ayuda y aprende junto al resto de estudiantes.</p>
+                <p>El camino es más ligero cuando se recorre acompañado junto a las personas adecuadas.</p>
+            </div>            
+        </section>                
+        
+
+        <footer>
+            <img src="img/svg/pomodoro_w.svg" alt="logo_pomodoro" id="footer_logo_pomodoro">            
+            <h3>Proyecto colaborativo internacional de la Comunidad de Mouredev</h3>
+            <div class="social">
+                <img src="img/social/youtube.svg" alt="Youtube Logo">
+                <img src="img/social/twitch.svg" alt="Twitch Logo">
+                <img src="img/social/discord.svg" alt="Discord Logo">
+                <img src="img/social/github.svg" alt="Github Logo">
+                <img src="img/social/x.svg" alt="X Logo">
+                <img src="img/social/instagram.svg" alt="Instagram Logo">
+                <img src="img/social/tiktok.svg" alt="TikTok Logo">
+                <img src="img/social/linkedin.svg" alt="Linkedin Logo">
+            </div>
+        </footer>
+    </main>
+    <div id="open-modal" class="modal-window">
+        <div id="menu_drag" class="draggable">
+            <label for="darkmode_button" id="darkmode_label">Dark mode</label>
+            <input type="checkbox" id="darkmode_button"/>
+            <a href="#" title="Close" class="modal-close">Close</a>
+            <h3>pomenu</h3>
+            <a href="#">Settings</a>
+            <a href="#">Sign Up</a>
+            <a href="#">Login</a>            
+        </div>
+    </div>
+    
+<script src="js/app.js"></script>
+<script src="js/pomodoro.js"></script>
+<script src="js/dragdrop.js"></script>
+
+
+
+</body>
+</html>
