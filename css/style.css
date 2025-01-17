@@ -411,7 +411,7 @@ body:has(#open-modal div #darkmode_button:checked) {
 
 /* PANTALLA MENU  */
 .modal-window {
-    position: fixed;
+    position: absolute;
     background-color: rgba(255, 255, 255, 0.25);
     top: 0;
     right: 0;
@@ -422,6 +422,8 @@ body:has(#open-modal div #darkmode_button:checked) {
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s;
+    -webkit-user-select: none;
+    user-select: none;
     &:target {
         visibility: visible;
         opacity: 1;
@@ -462,63 +464,3 @@ body:has(#open-modal div #darkmode_button:checked) {
         color: var(--yellow-color);
     }
 }  
-
-
-
-
-
-
-
-
-
-
-.blurred-bg{			
-	background-color: var(--white-color);   
-	&.tinted{
-		filter: blur(.5px);
-	}
-	&.shaded{
-		box-shadow: 4px 4px 0px 1px #ffd7d7;
-	}
-}
-
-.box {
-    position:absolute;
-	width:500px;
-	height:300px;
-    left:-webkit-calc( 50% - 250px );
-    top:20%;
-	border-radius:5px;
-	
-	border:1px solid rgba(255,255,255,.3);
-	padding:20px;
-	text-align: center;
-	
-	text-shadow:0 1px 1px rgba(0,0,0,.4);
-    display: flex;
-    transition: box-shadow .3s ease;
-    &:hover{
-        cursor: grab;
-    }   
-}
-
-.draggable {
-    position:absolute;
-	width:500px;
-	height:300px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-	border-radius:5px;
-	
-	border:1px solid rgba(255,255,255,.3);
-	padding:20px;
-	text-align: center;
-	
-	text-shadow:0 1px 1px rgba(0,0,0,.4);
-    display: flex;
-    transition: box-shadow .3s ease;
-    &:hover{
-        cursor: grab;
-    }   
-}
