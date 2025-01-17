@@ -21,10 +21,7 @@ window.addEventListener('mousemove', (event) => {
 
         // Calcula la posición máxima permitida (mínimo y límite inferior)
         const maxTop = pomodoro_bottom_y - menu_card_medidas.height; // Límite superior
-        const maxLeft = pomodoro_width - menu_card_medidas.width; // Límite superior
-
-        const naewLeft = event.clientX - offsetX; // Nueva posición horizontal
-        
+        const maxLeft = pomodoro_width - menu_card_medidas.width; // Límite superior       
         const newLeft = Math.min(
             Math.max(event.clientX - offsetX, menu_card_medidas.width/2),
             maxLeft+menu_card_medidas.width/2);
