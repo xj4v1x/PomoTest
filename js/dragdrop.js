@@ -2,6 +2,7 @@
 const menu_card = document.getElementById('menu_drag');
 const pomodoro_bottom = document.getElementById('pomodoro_bottom');
 const pomodoro_bottom_y = parseInt(pomodoro_bottom.getBoundingClientRect().y); // 732px
+const pomodoro_width = parseInt(pomodoro_bottom.getBoundingClientRect().width);
 let menu_card_medidas = menu_card.getBoundingClientRect();
 let isDragging = false; // Indica si está en movimiento
 let offsetX = 0; // Diferencia horizontal entre el mouse y el div
@@ -20,7 +21,14 @@ window.addEventListener('mousemove', (event) => {
 
         // Calcula la posición máxima permitida (mínimo y límite inferior)
         const maxTop = pomodoro_bottom_y - menu_card_medidas.height; // Límite superior
-        const newLeft = event.clientX - offsetX; // Nueva posición horizontal
+        const maxLeft = pomodoro_width - menu_card_medidas.width; // Límite superior
+
+        const naewLeft = event.clientX - offsetX; // Nueva posición horizontal
+        
+        const newLeft = Math.min(
+            Math.max(event.clientX - offsetX, menu_card_medidas.width/2),
+            maxLeft+menu_card_medidas.width/2);
+        
         const newTop = Math.min(
             Math.max(event.clientY - offsetY, menu_card_medidas.height), // Límite superior: no salga por arriba
             maxTop+menu_card_medidas.height/2 // Límite inferior
