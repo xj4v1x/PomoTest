@@ -1,34 +1,8 @@
 // Selecciona todos los elementos con la clase draggable
 const draggables = document.querySelectorAll('.draggable');
-const draggables_icons = document.querySelectorAll('.icondraggable');
+const draggables_icons = document.querySelectorAll('.draggable_icons');
 
-draggables_icons.forEach(icon => {
-    let isDraggingIcon = false;
-    let offsetX, offsetY;
-    icon.addEventListener('mousedown', (e) => {        
-        e.preventDefault();
-        isDraggingIcon = true;
-        offsetX = e.clientX - icon.getBoundingClientRect().left;
-        offsetY = e.clientY - icon.getBoundingClientRect().top;
-        icon.style.cursor = 'grabbing';
-    });
-    document.addEventListener('mousemove', (e) => {            
-        if (isDraggingIcon) {
-            // Calculamos las nuevas posiciones usando el desplazamiento del mouse
-            const newXIcon = e.clientX - offsetX;
-            const newYIcon = e.clientY - offsetY;                
-            // Aplicamos las nuevas posiciones al contenedor
-            icon.style.left = `${newXIcon}px`;
-            icon.style.top = `${newYIcon}px`;
-        }
-    });
-    document.addEventListener('mouseup', () => {
-        if (isDraggingIcon) {
-            isDraggingIcon = false;
-            icon.style.cursor = 'grab'; // Restauramos el cursor normal
-        }
-    });
-});
+
 
 
 // Selecciona el elemento con el id pomodoro_core
@@ -173,7 +147,7 @@ draggables.forEach(draggable => {
             newY = Math.max(containerRect.top + rect.height / 2, Math.min(newY, containerRect.bottom - rect.height / 2));
 
             draggable.style.left = `${newX}px`;
-            draggable.style.top = `${newY}px`;            
+            draggable.style.top = `${newY}px`;
         }
 
         function onMouseUp() {

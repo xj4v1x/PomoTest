@@ -1,44 +1,17 @@
 // Selecciona todos los elementos con la clase draggable
 const draggables = document.querySelectorAll('.draggable');
-const draggables_icons = document.querySelectorAll('.icondraggable');
-
-draggables_icons.forEach(icon => {
-    let isDraggingIcon = false;
-    let offsetX, offsetY;
-    icon.addEventListener('mousedown', (e) => {        
-        e.preventDefault();
-        isDraggingIcon = true;
-        offsetX = e.clientX - icon.getBoundingClientRect().left;
-        offsetY = e.clientY - icon.getBoundingClientRect().top;
-        icon.style.cursor = 'grabbing';
-    });
-    document.addEventListener('mousemove', (e) => {            
-        if (isDraggingIcon) {
-            // Calculamos las nuevas posiciones usando el desplazamiento del mouse
-            const newXIcon = e.clientX - offsetX;
-            const newYIcon = e.clientY - offsetY;                
-            // Aplicamos las nuevas posiciones al contenedor
-            icon.style.left = `${newXIcon}px`;
-            icon.style.top = `${newYIcon}px`;
-        }
-    });
-    document.addEventListener('mouseup', () => {
-        if (isDraggingIcon) {
-            isDraggingIcon = false;
-            icon.style.cursor = 'grab'; // Restauramos el cursor normal
-        }
-    });
-});
-
 
 // Selecciona el elemento con el id pomodoro_core
 const container = document.getElementById('pomodoro_core');
+const px = document.getElementById('x');
+const py = document.getElementById('y');
 
 const taskIcon = document.getElementById('tasks_icon_wrapper');
 taskIcon.addEventListener('dblclick', (e) => {
     const taskScreen = document.getElementById('tasks_drag');
     taskScreen.classList.remove('minimize');
 });
+
 // MOVER ICONOS
 const draggableWrappers = document.querySelectorAll('.draggable-wrapper');
 draggableWrappers.forEach(wrapper => {
@@ -48,7 +21,6 @@ draggableWrappers.forEach(wrapper => {
 
     // Cuando el mouse se presiona sobre el overlay, comenzamos el arrastre
     overlay.addEventListener('mousedown', (e) => {
-    //wrapper.addEventListener('mousedown', (e) => {
         e.preventDefault(); // Para evitar que el navegador trate de arrastrar la imagen
 
         // Marcamos que estamos en el proceso de arrastre
@@ -56,7 +28,7 @@ draggableWrappers.forEach(wrapper => {
 
         // Calculamos las posiciones iniciales del mouse relativo al contenedor
         offsetX = e.clientX - wrapper.getBoundingClientRect().left;
-        offsetY = e.clientY - wrapper.getBoundingClientRect().top;        
+        offsetY = e.clientY - wrapper.getBoundingClientRect().top;
 
         // Cambiar el cursor durante el arrastre
         wrapper.style.cursor = 'grabbing';
@@ -68,7 +40,7 @@ draggableWrappers.forEach(wrapper => {
             // Calculamos las nuevas posiciones usando el desplazamiento del mouse
             const newX = e.clientX - offsetX;
             const newY = e.clientY - offsetY;
-                        
+
             // Aplicamos las nuevas posiciones al contenedor
             wrapper.style.left = `${newX}px`;
             wrapper.style.top = `${newY}px`;
@@ -99,18 +71,17 @@ draggables.forEach(draggable => {
     const header = draggable.querySelector('.header');
     
     // Botones de control de ventanas
-    
     const minimize = draggable.querySelector('.minimize');
     const maximize = draggable.querySelector('.maximize');
     const close = draggable.querySelector('.close');
+    
     // Elemento para resize
     const resizeHandle = draggable.querySelector('.resize-handle');
-    
+
     // Flag para saber si estamos redimensionando
     let resizing = false;
     let initialWidth, initialHeight, initialX, initialY, initialTop, initialLeft;
-    
-    
+
     // Si tiene header le añadimos el evento mousedown al header
     if (header) {
         header.addEventListener('mousedown', onMouseDown);        
@@ -145,6 +116,7 @@ draggables.forEach(draggable => {
             draggable.classList.toggle("minimize");
         });
     }
+
     // Función para mover las ventanas
     function onMouseDown(event) {
         document.addEventListener('mousemove', onMouseMove);
@@ -173,7 +145,7 @@ draggables.forEach(draggable => {
             newY = Math.max(containerRect.top + rect.height / 2, Math.min(newY, containerRect.bottom - rect.height / 2));
 
             draggable.style.left = `${newX}px`;
-            draggable.style.top = `${newY}px`;            
+            draggable.style.top = `${newY}px`;
         }
 
         function onMouseUp() {

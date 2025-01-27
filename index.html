@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"rel="stylesheet"/>
+    
     <title>Pomodoro</title>
 </head>
 <body>    
@@ -36,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div id="pomodoro_core" class="grid-scroll">                
+            <div id="pomodoro_core" class="grid-scroll">
                 <div id="tasks"></div>
                 <div id="statistics"></div>
                 <div id="timer">
@@ -112,20 +115,95 @@
         </footer>
     </main>
     <div id="open-modal" class="modal-window">
-        <div id="menu_drag">
+        <div id="menu_drag" class="draggable">
             <label for="darkmode_button" id="darkmode_label">Dark mode</label>
             <input type="checkbox" id="darkmode_button"/>
-            <a href="#" title="Close" class="modal-close">Close</a>
+            <a href="#" title="Close" class="modal-btn">Close</a>
             <h3>pomenu</h3>
-            <a href="#">Settings</a>
+            <a href="#settings-modal">Settings</a>
             <a href="#">Sign Up</a>
             <a href="#">Login</a>            
         </div>
     </div>
-    
+
+    <div id="settings-modal" class="modal-window">
+        <div id="settings_drag" class="draggable">            
+            <a href="#" title="Close" class="modal-btn">Close</a>
+            <h3>pomenu</h3>
+            <a href="#">Settings #1</a>
+            <a href="#">Settings #2</a>
+            <a href="#">Settings #3</a>
+            <a href="#open-modal" title="Back" class="modal-back">Back</a>
+        </div>
+    </div>
+    		<!-- ********* TASKS ********** --><!-- ********* TASKS ********** -->
+		<!-- ********* TASKS ********** --><!-- ********* TASKS ********** -->
+		<!-- ********* TASKS ********** --><!-- ********* TASKS ********** 
+        -->
+        <div id="icons">
+            <div class="draggable_icons">
+                <a href="#" id="tasks_icon" class="draggable">
+                    <img src="./img/icons/tasks_icon.png" alt="tasks_icon">
+                    Tasks
+                </a>
+            </div>
+            <div id="tasks_icon_wrapper" class="draggable-wrapper">
+                <div class="task-icon-overlay draggable-overlay ">
+                    <a href="#" id="tasks_icon" class="draggable">
+                        <img src="./img/icons/tasks_icon.png" alt="tasks_icon">
+                        Tasks
+                    </a>
+                </div>
+            </div>
+            <!-- 
+            -->
+                <div id="statistics_icon_wrapper" class="draggable-wrapper">
+                    <div class="task-icon-overlay draggable-overlay">
+                        <a href="#" id="status_icon" class="draggable">
+                            <img src="./img/icons/statistics_icon.png" alt="tasks_icon">
+                            Statistics
+                        </a>
+                    </div>
+                </div>
+            </div>        
+        
+            <div id="tasks_screen">
+                <div id="tasks_drag" class="draggable screen minimize">
+                    <div class="header">
+                        <div class="screen-control">
+                        <button type="button" class="minimize">
+                            <span class="material-symbols-outlined">minimize</span>
+                        </button>
+                        <button type="button" class="maximize">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                        <button type="button" class="close">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                        </div>
+                        <h5>Tasks</h5>
+                    </div>
+                    <ul id="tasks_list">
+                        <li id="add-task">
+                        <div class="task-input">
+                            <input type="text" id="addtask_input" placeholder="Add Task..." />
+                            <button type="button" id="addtask_button">
+                            <span class="material-symbols-outlined">check</span>
+                            </button>
+                        </div>
+                        </li>
+                        
+                    </ul>
+                    <div class="resize-handle"></div>
+                </div>
+        </div>    
+              <!-- ********* TASKS ********** --><!-- ********* TASKS ********** -->
+              <!-- ********* TASKS ********** --><!-- ********* TASKS ********** -->
+              <!-- ********* TASKS ********** --><!-- ********* TASKS ********** -->
 <script src="js/app.js"></script>
 <script src="js/pomodoro.js"></script>
 <script src="js/dragdrop.js"></script>
+<script src="js/tareas.js"></script>
 
 
 

@@ -99,7 +99,7 @@ function loadPomodoro(){
 start_button.addEventListener("click", function () {    
     start_button.classList.toggle("active");
     pause_button.classList.remove('active');
-    running = !running;
+    running = !running;    
     if (running) {    
         startPomodoro();
     } else {                
@@ -109,13 +109,11 @@ start_button.addEventListener("click", function () {
 });
 function startPomodoro(){
     if (typeof timer === "undefined") {
-        
-        if (!inpause) {
+        if (!inpause) {            
             timer = setInterval(() => {
                 const porcentaje = (pomodoroMins*60+pomodoroSecs)*100/tiempoTotal;
                 if (pomodoroSecs>=0 || pomodoroMins>=0) {
-                    pomodoroSecs -= 1;
-                    console.log(pomodoroMins + ':' + pomodoroSecs);                    
+                    pomodoroSecs -= 1;                    
                     if (pomodoroSecs < 0 && pomodoroMins>0) {             
                         pomodoroSecs = 59;
                         pomodoroMins -= 1;
@@ -136,6 +134,8 @@ function startPomodoro(){
             loadPomodoro();
             stopPomodoro();
         }
+    } else {
+        stopPomodoro();
     }
 };
 
@@ -150,7 +150,7 @@ stop_button.addEventListener("click", function () {
 function stopPomodoro(){
     running = false;
     inpause = false;
-    start_button.classList.remove('active');
+    start_button.classList.remove('active');    
     pause_button.classList.remove('active');
     loadPomodoro();
     if (typeof timer != "undefined") {
@@ -169,13 +169,13 @@ pause_button.addEventListener("click", function () {
 function pausePomodoro(){
     if (running) {
         running = false;
-        inpause = true;
+        inpause = true;        
         clearInterval(timer);
         start_button.classList.toggle('active');
         pause_button.classList.toggle('active');
     } else if (inpause) {
         inpause = false;
-        running = true;
+        running = true;        
         timer = undefined;
         start_button.classList.toggle('active');
         pause_button.classList.toggle('active');
